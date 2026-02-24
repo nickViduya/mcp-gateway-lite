@@ -1,0 +1,2 @@
+CREATE INDEX "servers_embedding_hnsw_idx" ON "servers" USING hnsw ("embedding" vector_cosine_ops);--> statement-breakpoint
+CREATE INDEX "tools_embedding_hnsw_idx" ON "tools" USING hnsw ("embedding" vector_cosine_ops);

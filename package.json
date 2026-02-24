@@ -1,0 +1,52 @@
+{
+  "name": "mcp-gateway-lite",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "vitest run",
+    "build": "tsup",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint:biome": "biome check src tests .github drizzle.config.ts tsconfig.json tsup.config.ts vitest.config.ts eslint.config.js package.json Dockerfile docker-compose.yml railway.json .env.example README.md SECURITY.md CONTRIBUTING.md CHANGELOG.md LICENSE",
+    "lint:eslint": "eslint .",
+    "lint": "pnpm lint:biome && pnpm lint:eslint",
+    "lint:all": "pnpm lint && pnpm typecheck && pnpm test",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx src/db/migrate.ts",
+    "db:seed": "tsx src/db/seed.ts",
+    "sync:run": "tsx src/sync/run.ts",
+    "rotate-keys": "tsx src/auth/rotateKey.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "description": "Lightweight MCP gateway with search and execute tools",
+  "packageManager": "pnpm@10.30.1+sha512.3590e550d5384caa39bd5c7c739f72270234b2f6059e13018f975c313b1eb9fefcc09714048765d4d9efe961382c312e624572c0420762bdc5d5940cdf9be73a",
+  "dependencies": {
+    "@hono/node-server": "^1.19.9",
+    "@modelcontextprotocol/sdk": "^1.27.0",
+    "dotenv": "^17.3.1",
+    "drizzle-orm": "^0.45.1",
+    "hono": "^4.12.2",
+    "node-cron": "^4.2.1",
+    "pino": "^10.3.1",
+    "postgres": "^3.4.8",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.4",
+    "@types/node": "^25.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.56.1",
+    "@typescript-eslint/parser": "^8.56.1",
+    "drizzle-kit": "^0.31.9",
+    "eslint": "^10.0.2",
+    "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  },
+  "type": "module",
+  "types": "dist/index.d.ts"
+}
